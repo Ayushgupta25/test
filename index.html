@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+		<link rel="stylesheet" href="css/styles.css"/>
+	</head>
+	<body ng-app="contactsApp">
+		<header>
+			<div class="row">
+				<div class="col-sm-6 col-xs-8">
+					<input type="text" class="searchText" ng-model="searchText.name" placeholder="Search contact..."><img class="clearIcon" ng-if="searchText.name" src="img/delete-black.png" ng-click="searchText.name='';"/>
+				</div>
+				<div class="col-sm-5 hidden-xs userName">
+					Welcome, Ayush Gupta
+				</div>
+				<div class="col-sm-1 col-xs-4" style="text-align: right;">
+					<img src="img/user-icon.png"/>
+				</div>
+			</div>
+		</header>
+		<div class="mainContainer" ng-controller="contactsController">
+			<div class="row">
+				<div class="col-sm-3 hidden-xs">
+					<div ng-class="($index === selectedIndex) ? 'selectedContactName':''" class="contactName" ng-repeat="contact in contactsObj | filter:searchText" ng-click="selectContact(contact)">
+						{{contact.name}} <div style="float: right;"><img src="img/rightarrow.png"></div>
+					</div>
+				</div>
+				<div class="visible-xs col-sm-12">
+					<div class="contactName" ng-repeat="contact in contactsObj | filter:searchText" ng-click="openContact(contact)">
+						{{contact.name}}
+					</div>
+				</div>
+				<div class="col-sm-9 hidden-xs">
+					<contact-details data="selectedContact"></contact-details>
+				</div>
+			</div>
+				
+			<div id="contactModal" class="modal fade" tabindex="-1" role="dialog">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">Contact Details</h4>
+			      </div>
+			      <div class="modal-body">
+			        <contact-details data="selectedContact"></contact-details>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		</div>
+		
+	</body>
+
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/contactsController.js"></script>
+	<script src="js/directives/contactsDirective.js"></script>
+	<script src="js/services/contactsService.js"></script>
+</html>

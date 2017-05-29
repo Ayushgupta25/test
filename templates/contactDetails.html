@@ -1,0 +1,56 @@
+<div class="contactDetails">
+	<div class="row">
+		<div class="col-sm-4">
+			<img ng-src="{{data.img}}" />
+		</div>
+		<div class="col-sm-8">
+			<div class="name">{{data.name}}</div>
+
+			<div ng-repeat="i in [1,2,3,4,5]" style="display: inline-block;">
+				<img ng-if="i <= data.rating" ng-src="img/like.png" />
+				<img ng-if="i > data.rating" ng-src="img/dislike.png" />
+			</div>
+			<br><br>
+			<div>
+				<input type="button" class="btn btn-primary" name=""  value="Send Message">
+			</div>
+		</div>
+	</div>
+
+	<div ng-bind="data.Description" class="desc">
+		
+	</div>
+	<br>
+
+	  <table class="table table-striped table-bordered customTable">
+		<thead>
+		  <tr>
+			<th>Likes</th>
+			
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="like in data.Likes">
+			<td >{{like}}</td>
+		  </tr>
+		
+		</tbody>
+	  </table>
+	
+		<table class="table table-striped table-bordered customTable">
+		<thead>
+		  <tr>
+			<th>Dislikes</th>
+			
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="dislike in data.Dislikes">
+			<td >{{dislike}}</td>
+		  </tr>
+		
+		</tbody>
+	  </table>
+	
+	
+</div>

@@ -1,0 +1,84 @@
+body{
+	margin:0;
+}
+
+.mainContainer{
+	height:92%;
+}
+
+header{
+	padding: 10px;
+	background-color: lightsteelblue;
+	height: 8%;
+}
+
+header .userName{
+	text-align: right;
+	height: 35px;
+    font-size: 20px;
+}
+
+.mainContainer > div{
+	height: 100%;
+}
+
+.mainContainer > div > div{
+	height: 100%;
+	border-left: 1px solid #ccc;
+    padding: 0;
+    overflow: auto;
+}
+
+.searchText{
+	height: 35px;
+    border: 0;
+    font-size: 15px;
+	padding: 5px 25px 5px 10px;
+}
+
+.clearIcon{
+	position: relative;
+    left: -20px;
+}
+
+.contactName{
+	padding: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.contactDetails{
+	padding:20px 60px;
+}
+
+.contactDetails .name{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.contactDetails .desc{
+	padding: 10px;
+	font-size: 18px;
+}
+
+.contactDetails .likeDislike{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.contactDetails .like{
+	padding: 5px 10px;
+}
+.contactDetails .dislike{
+	padding: 5px 10px;
+}
+
+.customTable{
+    width: 40%;
+    display: inline-table;
+}
+.selectedContactName{
+	background : #ccc;
+}
